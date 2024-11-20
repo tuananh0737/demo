@@ -1,0 +1,37 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link routerLink="/home">Bookreads</a>
+  <a mat-tab-link routerLink="/bookmark">Bookmark</a>
+  <a mat-tab-link routerLink="/listbook">List</a>
+  <a mat-tab-link routerLink="/login">Login</a>
+  <a mat-tab-link routerLink="/regis">Register</a>
+</nav>
+<div class="heading">
+	<div class="container">
+		<button class="toggle-btn" (click)="toggleSidebar()">☰ </button>
+		<div id="sidebar" class="sidebar">
+			<h2>Search</h2>
+			<div class="search-form">
+				<input 
+				type="text" 
+				id="searchInput" 
+				placeholder="Search by book title, author or genres" 
+				[(ngModel)]="searchQuery" />
+				<button  (click)="performSearch()">Search</button>
+				<!-- <button onclick="location.href='/listbook'">Search</button> -->
+			</div>
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/login">Login</a></li>
+				<li><a href="/regis">Regis</a></li>
+				<li><a href="/bookmark">My book</a></li>
+			</ul>
+		</div>
+	</div>
+	<footer>
+		<a href="/home"
+			target="_blank">
+			github
+		</a>
+	</footer>
+</div>
+<router-outlet></router-outlet>

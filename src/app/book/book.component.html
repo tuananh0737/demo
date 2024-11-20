@@ -1,0 +1,12 @@
+<div class="search-results">
+    <div *ngIf="searchResults.length > 0; else noResults">
+        <ul>
+            <li *ngFor="let book of searchResults">
+                {{ book.title }} by {{ book.author.name }} (Genre: {{ book.genre.name }})
+            </li>
+        </ul>
+    </div>
+    <ng-template #noResults>
+        <p>No results found.</p>
+    </ng-template>
+</div>

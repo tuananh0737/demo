@@ -1,0 +1,42 @@
+<h1>Book List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Pages</th>
+      <th>Year</th>
+      <th>Details</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.genre }}</td>
+      <td>{{ book.pages }}</td>
+      <td>{{ book.year }}</td>
+      <td>
+        <button (click)="showDetails(book)">View</button>
+      </td>
+      <td>{{ book.quantity }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedBook" class="overlay">
+    <div class="form-container">
+      <h2>Book Details</h2>
+      <p><strong>Name:</strong> {{ selectedBook.name }}</p>
+      <p><strong>Author:</strong> {{ selectedBook.author }}</p>
+      <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
+      <p><strong>Pages:</strong> {{ selectedBook.pages }}</p>
+      <p><strong>Year:</strong> {{ selectedBook.year }}</p>
+      <p><strong>Details:</strong> {{ selectedBook.details }}</p>
+      <p><strong>Quantity:</strong> {{ selectedBook.quantity }}</p>
+      <button (click)="borrow()">Borrow</button>
+      <button (click)="closeForm()">Close</button>
+    </div>
+  </div>

@@ -1,0 +1,45 @@
+<div class="wrap-regis">
+    <div class="container">
+        <form class="" [formGroup]="regisForm" (ngSubmit)="onSubmit()">
+            <mat-card class="regis-box">
+                <mat-card-header>
+                    <img mat-card-avatar [src]="logoUrl" alt="Logo">
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" placeholder="Enter your email" formControlName="email"required class="form-field">
+                        <mat-error *ngIf="regisForm.get('email')?.hasError('required')">Email is required</mat-error>
+                        <mat-error *ngIf="regisForm.get('email')?.hasError('email')">Invalid email format</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Enter your password" formControlName="password"required class="form-field">
+                        <mat-error *ngIf="regisForm.get('password')?.hasError('required')">Password is required</mat-error>
+                        <mat-error *ngIf="regisForm.get('password')?.hasError('minlength')">Password must be at least 6 characters</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Re-enter password</mat-label>
+                        <input matInput type="password" placeholder="Enter your password" formControlName="password"required class="form-field">
+                        <mat-error *ngIf="regisForm.get('password')?.hasError('minlength')">Invalid password format</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fullname</mat-label>
+                        <input matInput type="text" placeholder="Enter your fullname" formControlName="fullname" required class="form-field">
+                        <mat-error *ngIf="regisForm.get('fullname')?.hasError('text')"></mat-error>
+                    </mat-form-field>
+                    
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary">Regis</button>
+                </mat-card-actions>
+                <mat-card-actions>
+                    <button routerLink="/login">Chuyển đến Đăng nhập</button>
+                </mat-card-actions>
+            </mat-card>
+        </form>
+    </div>
+</div>>
